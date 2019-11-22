@@ -2,7 +2,7 @@
 
     git init
 
-# 2. inicializar el proyecto con el flag -y(preconfigura)
+# 2. inicializar el proyecto en npm con el flag -y(preconfigura)
 
     npm init -y
 
@@ -28,7 +28,7 @@
 
     npm install react react-dom
 
-# 5. Procedemos a configurar index.js con la ruta con la cual react va a rederizar la app
+# 5. Procedemos a configurar index.js con la ruta con la cual react va a renderizar la app
 
     import React from "react";
     import ReactDOM from "react-dom";
@@ -96,13 +96,27 @@
           "css-loader", (loader)
           "sass-loader" (loader)
 
-    3.-Inicializamos una instancia del plugin que queremos usar. Cada uno tendra algo en especisifico como dir de archivos nombre, output and imput,etc hay que ver la documentacion de los pugins.
+    3.-Inicializamos una instancia del plugin que queremos usar y la ruta a la cual se creara el archivo y su nombre y extension. Cada uno tendra algo en especisifico como dir de archivos nombre, output and imput,etc hay que ver la documentacion de los pugins.
 
         new MiniCssExtractPlugin({
          filename: "assets/[name].css"
         })
 
-# 15. Crearemos una carpeta assets dentro de src, la cual forma parte de una estrutura de buenas practicas y adentro crearemos una carpeta styles y dentro nuestros css o sass.
+# 15. Recuerda agregar webpack-dev-server para trabajar en development y agregargo al package.json de npm.
+
+    1.- npm install --save-dev webpack-dev-server
+
+    2.- Script para ejecutar el servidor de Webpack y visualizar los cambios en tiempo real (package.json):
+
+    {
+    ""scripts"": {
+        ""build"": ""webpack --mode production"",
+        ""start"": ""webpack-dev-server --open --mode development""
+    },
+    }
+    (webpack-dev-server hay muchos tipos de flags tienes que ver cuales te son de utilidad)
+
+# 16. Crearemos una carpeta assets dentro de src, la cual forma parte de una estrutura de buenas practicas y adentro crearemos una carpeta styles y dentro nuestros css o sass.
 
     src:{
         assets:{
@@ -114,11 +128,14 @@
 
     como esta referenciado en webpack, lo va a copilar y con el plugin lo va  a separa y lo va a guardar donde debe estar la referencia real.
 
-# 16. Ahora vamos a hacerle un import "../assets/styles/App.scss" en el archivo HelloWorld.jsx
+# 17. Ahora vamos a hacerle un import "../assets/styles/App.scss" en el archivo HelloWorld.jsx
 
-# 17. Recuerda agregar webpack-dev-server para trabajar en development y agregargo al package.json de npm.
+# 18. Eslint vamos a instalar esta herramienta que nos permitira evitar errores y a crear nuestro archivo gitignore para luego madar todo a github.
 
-    "start": "webpack-dev-server --open --mode development"
-    (webpack-dev-server hay muchos tipos de flags tienes que ver cuales te son de utilidad)
+    npm install --save-dev eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
 
-# 18.
+    eslint-config-airbnb: utilizamos este porque vamos a utilizar unas reglas definidas por ellos para crear proyectos en javascript
+
+    gitignore y eslint las reglas recomendadas por platzi estan en los enlaces de:
+    https://gist.github.com/gndx/747a8913d12e96ff8374e2125efde544
+    https://gist.github.com/gndx/60ae8b1807263e3a55f790ed17c4c57a
