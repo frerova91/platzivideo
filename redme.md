@@ -251,4 +251,56 @@
     nota: se puede agregar como dependencia de desarrollo y modificar el script start de la siguiente forma:
     "start": "json-server --watch initialState.json -q & webpack-dev-server --open --mode development"
 
-# 28. En esta clase vamos a
+# 28. En esta clase vamos a aprender a trabajar con React Hooks estado y ciclo de vida para las funciones, lo que ayuda con el manejo de estado de los componente y hace menos confuso el como pasar los props en react. Cuidado con su implementacion en proyectos ya en proceso que no los tengan puede tener incompatibilidades.
+
+    "NOTA": AHORA VAMOS A ACTUALIZAR LOS COMPONENTES A REACT HOOKS. DEJAEMOS UN DUPLICADO A LOS QUE MODIFICAREMOS PARA RECORDAR
+
+    useState(): manejaremos los estados
+
+    useEffect(): vamos a realizar las peticiones de apis o eventos entre los componentes y escuchamos al que tiene que pasar (eventos).
+
+    en este paso se transformo app.js a app.jsx con react hooks.
+
+# 29. Ya tenemos la informacion de la api ahora lo que vamos a hacer es transmitirle esa informacion a los componentes, personalizadolos con la info de la api ya no necesitaremos llamar varias veces al componente carousel porque vamos a iterar sobre el.
+
+    Para entender que es lo que le vamos a pasar a los componentes como props y eso es necesario ver la api para entender como se llaman los datos, de que tipo son, etc.
+
+    crearemos unas validacion de si en caso de que la lista no tenga elementos no sea mostrada
+
+    Aqui tambien actualizaremos nuestro componentes carousel item
+
+# 30. Custom Hooks esto nos permitira separa la logica de los componentes en una funcion reutilizable la cual podemos llamar en cualquiera de nuestros componentes.
+
+    ejemplo: vamos a quitar la logica de conectar con el api del app.jsx y colocaremos nuestros custom hooks en una carpeta unico dentro de src se llama hooks.
+
+    Por convencion todos los custom hooks deben de ser llamados con use[nombre de mi hook] para ser identificados como un hook siempre.
+
+    si tu hook no maneja jsx no es necesario colocarle jsx solo js
+
+    Ahora tambien vamos a actualizar los componentes de mi lista y platzi video.
+
+# 31. Prop Types son una propiedad de nuestros componentes que nos permiten especificar qué tipo de elementos son nuestras props: arrays, strings, números, tambien tenemos la opcion de psarlos como requeriados o con valor por defecto. Nos ofrece una forma dinamica de verificar el tipo de valor de los props de nuestros componentes (Un problema que podriamos reolver implementando TypeScript).
+
+    Instalación de PropTypes:
+    npm install --save prop-types
+
+    Ahora vamos a  añadir props types a nuestro componente de carousel.
+
+    Implementando typescript con react y webpack: ""esto es opcional""
+    https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+
+# 32. Debuggeando React con React DevTools React DevTools es una herramienta muy parecida al Inspector de Elementos. Nos permite visualizar, analizar e interactuar con nuestros componentes de React desde el navegador.
+
+# BUENO QUE SIGUE ?
+
+# Felicitaciones por terminar el Curso Práctico de React JS!
+
+# En este curso aprendimos a crear interfaces web como la aplicación de Platzi Video usando componentes de React.
+
+# No olvides resolver los ejercicios, completar el examen, darle 5 estrellas al profesor y compartir tu proyecto, notas, dudas o comentarios en la sección de discusiones.
+
+# Te recomendamos continuar tu ruta de aprendizaje profesional con los siguientes cursos de la Escuela de JavaScript:
+
+# Curso de React Router y Redux
+
+# Curso de Server Side Render con Express
