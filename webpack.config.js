@@ -35,6 +35,17 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(png|gif|jpg)$/, //expresion regular
+        use: [
+          // esta es la configuracion
+          {
+            loader: "file-loader",
+            options: { name: "assets/[hash].[ext]" }
+            // config como se llama el archivo usaremos un hash para no tener que preocuparnos deñ nombre
+          }
+        ]
       }
     ]
   },

@@ -96,7 +96,7 @@
           "css-loader", (loader)
           "sass-loader" (loader)
 
-    3.-Inicializamos una instancia del plugin que queremos usar y la ruta a la cual se creara el archivo y su nombre y extension. Cada uno tendra algo en especisifico como dir de archivos nombre, output and imput,etc hay que ver la documentacion de los pugins.
+    3.-Inicializamos una instancia del plugin que queremos usar y la ruta a la cual se creara el archivo y su nombre y extension. Cada uno tendra algo en especisifico como dir de archivos nombre, output and 	|imput,etc hay que ver la documentacion de los pugins.
 
         new MiniCssExtractPlugin({
          filename: "assets/[name].css"
@@ -139,3 +139,116 @@
     gitignore y eslint las reglas recomendadas por platzi estan en los enlaces de:
     https://gist.github.com/gndx/747a8913d12e96ff8374e2125efde544
     https://gist.github.com/gndx/60ae8b1807263e3a55f790ed17c4c57a
+
+    GITHUB
+
+    Quick setup — if you’ve done this kind of thing before
+
+    Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+
+    …or create a new repository on the command line
+
+    echo "# a" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin git@github.com:frerova91/a.git
+    git push -u origin master
+
+    …or push an existing repository from the command line
+
+    git remote add origin git@github.com:frerova91/a.git
+    git push -u origin master
+
+    …or import code from another repository
+
+    You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+# 19. Ahora vamos a identificar las partes pertientes de una paginaweb como componenetes de react para platzi video. En la carpeta de githubrepo esta platzivideo de ejemplo ya terminado el cual vamos a interpretar para crear el nuestro.
+
+# 20. Crearemos el header del proyecto implementando lo visto en platzivideo, por lo que vemos a crea un componente presentacion uno que solo ingresa html.
+
+    1.- ahora vamos a primero a cambiar class por className para seleccionar todos los campos con el numbre class usamos [control + d o control + ,]
+
+    2.- Recuerda cerrar todas la etiquetas de forma adecuada ejem: <img  />
+
+    3.- ahora para verlo lo importamos en index.js pero esta no es la mejor opcion a continuacion vamos a crear:
+
+        -una carpeta llamada containers dentro de src donde viviran los contenedores que se encargan de presentar nuestros componentes.
+
+        -vamos a crear dentro de esa carpeta App.jsx y en este archivo vamos a traer nuestro componentes.
+
+        - y este archivo lo importamos en index.js y lo utilizamos.
+
+# 21. Vamos a crear nuestros estilos a continuacion con la referencias de la carpeta githubrepo dentificando lo que es general y lo que es de un componente para separarlo en archvios en la carpeta de assets e inportamos ese archivo en nuestros componentes.
+
+    Nota: mantengamos en la carpeta de los estilos la gerarquia una carpeta para los componentes otra para los containers,etc. Es recomendable colocarle a los archivos que no son js o jsx la extension para no perdernos o confundirnos.
+    Recuerda importar los archivos scss en sus respectivos conmponentes.
+
+# 22. Crearemos nuestro Search.jsx representado en el html de jrmplo con la clase de main, de la misma forma que el paso 21 con los ejemplos de githubrepo.
+
+    Nota: es buena practica nombrar la funcion definida como const _func_ = () => (); con el nombre del componenete
+
+# 23. Crearemos ahora los componentes del carrucel(section="carrucel"), las categoria(en este caso es un <h3> antes del carrucel)y los items(son aquellos que crean los elementos del carucel), con los mismos procedimientos que antes. Con una diferencia:
+
+    1.- Al carrucel y las categorias vamos a destructurarles como un prop en la funcion e incluirlos en el curpo de la misma un prop llamaod {children}. para invocar esos items dentro de estos componentes.
+
+    2.-luego hay que comunicarlos dentro App.js.
+
+    3.- y por ultimo recuerda agregarle sus estilos.
+
+    Nota: Recuerda que al importa el codigo de otra parte hay que estar pendiente de elementos mal cerrados u etiquetas que faltan.
+
+# 24. Aqui crearemos el footer con los mismos procedimientos de antes eso es todo.
+
+# 25. Ahora vamos a añadir fotos con webpack para ello vamos a utilizar File Loader
+
+    1.- npm install --save-dev file-loader
+
+    2.- Vamos a añadir las reglas en la configuracion de webpack en el archivo webpack.config.js
+
+        rules: [
+        {
+            test: /\.(png|gif|jpg)$/, //expresion regular
+            use: [ // esta es la configuracion
+            {
+                loader: 'file-loader',
+                options: { name: 'assets/[hash].[ext]' },
+                // config como se llama el archivo usaremos un hash para no tener que preocuparnos del nombre
+            }
+            ],
+        },
+        ],
+
+    3.- Ahora vamos a la carpeta de assets de githubrepo y los copiamos, para llevarlos a una nueva carpeta que vamos a crear dentro de assets de nuestro proyecto llamada static.
+
+    4.- Lo que falta es ir a los archivos correspondientes y importar nuestras imagenes como :
+
+        -import _name_ from './path/name.jpg'
+
+        - y remplazamos en las etiquetas de imagen las "" por src={_name_}
+
+    5.- ahora vamos simplemente hacer unas listas o mas listas de el carousel duplicandolo en app.jsx
+    pero vamos a modificar el componente de categories para pasar un nuevo prop en el cual vamos a  cambiar el nombre segun el nombre del carousel correspondiente desde app.js
+
+# 26. Ahora vamos a comodar algunos aspectos de la pagina vamos a colo las fonts y colores en un archivo de variables de scss en la carpeta de style, para estar organizado y tener codigo reutilizable ademas tambien arreglaremos el aspecto de el search.
+
+    Recuerda importar las variables en App.scss para terlas disponibles en todo el proyecto
+
+    Tambien vamos a crear un archivo para manejar el responsive de nuestro sitio Media.scss la info del css esta en el css de guthubrepo y lo llamamos en app.js.
+
+# 27. Vamos a usar JSON Server para crear una Fake API: una API ““falsa”” construida a partir de un archivo JSON que nos permite preparar nuestro código para consumir una API de verdad en el futuro.
+
+    Instalación de JSON Server:
+    npm install json-server  (de forma local)
+
+    hay que crear un archivo llamado initialState.json donde viviran los datos de nuestra fake api
+
+    y luego ejecutamos el server que correra en paralelo a nuestro proyecto con:
+
+    json-server initialState.json
+
+    nota: se puede agregar como dependencia de desarrollo y modificar el script start de la siguiente forma:
+    "start": "json-server --watch initialState.json -q & webpack-dev-server --open --mode development"
+
+# 28. En esta clase vamos a
